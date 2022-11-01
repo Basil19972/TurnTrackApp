@@ -13,7 +13,7 @@ import Impresum from './pages/Imprint';
 import Imprint from './pages/Imprint';
 
 async function login(){
-  await axios.get('http://localhost:8080/users/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
+  await axios.get('https://turn-track-production.herokuapp.com/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
 }
 
 

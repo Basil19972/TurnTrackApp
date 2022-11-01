@@ -35,7 +35,7 @@ interface Exercisesprops {
     
 
     async function getExercises(){
-        return await axios.get('http://localhost:8080/exercise/byuser',
+        return await axios.get('https://turn-track-production.herokuapp.com/exercise/byuser',
         {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
       }
 
@@ -65,7 +65,7 @@ interface Exercisesprops {
 
 
   async function SenddeleteExercise(id:string){
-    return await axios.delete(`http://localhost:8080/exercise/ ${id}`,
+    return await axios.delete(`https://turn-track-production.herokuapp.com/exercise/ ${id}`,
     {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
    }
 
@@ -95,7 +95,7 @@ interface Exercisesprops {
 
     console.log(selection)
     console.log(trainingDay)
-    axios.post('http://localhost:8080/weekday', trainingDay, {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}} )
+    axios.post('https://turn-track-production.herokuapp.com/weekday', trainingDay, {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}} )
     .then(response => {
       window.location.reload()})
     

@@ -15,7 +15,7 @@ function App(){
 
   const sendCreatedExercise = () =>{
 
-          axios.post('http://localhost:8080/exercise', exercise, {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}} )
+          axios.post('https://turn-track-production.herokuapp.com/exercise', exercise, {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}} )
           .then(response => {
             window.location.reload()})
         
