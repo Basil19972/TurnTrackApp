@@ -1,64 +1,122 @@
-import { Container, Title, Accordion, createStyles } from '@mantine/core';
+import { JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
+import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Select, Accordion, Container, List } from '@mantine/core';
+import axios from 'axios';
 
 const useStyles = createStyles((theme) => ({
-  wrapper: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
-    minHeight: 650,
-  },
-
-  title: {
-    marginBottom: theme.spacing.xl * 1.5,
-  },
-
-  item: {
-    borderRadius: theme.radius.md,
-    marginBottom: theme.spacing.lg,
-
-    border: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+  rowSelected: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? theme.fn.rgba(theme.colors[theme.primaryColor][7], 0.2)
+        : theme.colors[theme.primaryColor][0],
   },
 }));
 
-const placeholder =
-  'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor. In a sterile environment, the germs within its body can’t multiply, and it dies.It has no eyeballs, so it can’t see. It checks its surroundings via the ultrasonic waves it emits from its mouth.';
 
- function TrainingdayTable() {
-  const { classes } = useStyles();
-  return (
-    <Container size="sm" className={classes.wrapper}>
-      <Title align="center" className={classes.title}>
-        Your Training Days      
-        </Title>
 
+
+
+
+
+
+ function TableSelection() {
+
+
+  const [trainingDay, setTrainingDay] = useState([{id: '', dayPlanname: '', dayName:'',exercises:[{id:'', name:'', amountOfSets:0}]}])
+    
+
+  async function getTrainingDays(){
+      return await axios.get('https://turn-track-production.herokuapp.com/weekday',
+      {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
+    }
+  
+    useEffect(()=>{
+      getTrainingDays().then(res => {      
+          setTrainingDay(res.data)
+          console.log(res.data)
+        })},[])
+  
+  const data: any[] = [];
+  trainingDay.forEach(e => data.push(e))
+
+
+
+
+  const { classes, cx } = useStyles();
+  const [selection, setSelection] = useState<string[]>([]);
+  const toggleRow = (id: string) =>
+    setSelection((current) =>
+      current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
+    );
+  const toggleAll = () =>
+    setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
+
+  const rows = data.map((item) => {
+    const selected = selection.includes(item.id);
+    return (
+
+      
+      <tr key={item.id} className={cx({ [classes.rowSelected]: selected })}>
+        <td>
+          <Checkbox
+            checked={selection.includes(item.id)}
+            onChange={() => toggleRow(item.id)}
+            transitionDuration={0}
+          />
+        </td>
+        <td>
+          <Group spacing="sm">
+            <Avatar size={26} src={item.avatar} radius={26} />
+            <Text size="sm" weight={500}>
+              {item.dayPlanname}
+            </Text>
+          </Group>
+        </td>
+        <td>
+          <Text size="sm" weight={500}>
+              {item.dayName}
+          </Text>
+          </td>
+        <td>
+          
+        <Container size="sm">   
       <Accordion variant="separated">
-        <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="another-account">
-          <Accordion.Control>Can I create more that one account?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="newsletter">
-          <Accordion.Control>How can I subscribe to monthly newsletter?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="credit-card">
-          <Accordion.Control>Do you store credit card information securely?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control>What payment systems to you work with?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
+        <Accordion.Item  value="Exercises">
+          <Accordion.Control>Exercises</Accordion.Control>
+          <Accordion.Panel>
+          {item.exercises.map((e: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {
+            return <List><List.Item>{e.name}</List.Item></List>
+          })}
+             
+          </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
     </Container>
+        </td>
+      </tr>
+    );
+  });
+
+  return (
+    
+    <><Text size={"xl"} mb={10}>List of your Training Days</Text><ScrollArea>
+      <Table sx={{ minWidth: 800 }} verticalSpacing="sm">
+        <thead>
+          <tr>
+            <th style={{ width: 40 }}>
+              <Checkbox
+                onChange={toggleAll}
+                checked={selection.length === data.length}
+                indeterminate={selection.length > 0 && selection.length !== data.length}
+                transitionDuration={0} />
+            </th>
+            <th>Day Name</th>
+            <th>Day</th>
+            <th>Exercises</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </Table>
+    </ScrollArea></>
   );
 }
-export default TrainingdayTable;
+export default TableSelection;

@@ -113,7 +113,7 @@ import LoginPage from '../pages/LoginPage';
           <TextInput
             required
             label="Email"
-            placeholder="hello@mantine.dev"
+            placeholder="max@musterman.com"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
             error={form.errors.email && 'Invalid email'}

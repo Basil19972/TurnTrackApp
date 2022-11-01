@@ -56,7 +56,7 @@ import TrainingdayTable from "../components/TrainingdayTable";
         </Container>
     
         </Container>
-        <Container>
+        <Container mt={50}>
           <TrainingdayTable/>
         </Container>
 
