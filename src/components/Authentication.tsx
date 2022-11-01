@@ -52,11 +52,11 @@ import LoginPage from '../pages/LoginPage';
 
         
         if (type === 'register'){
-          axios.post('http://localhost:8080/users/register', form.values)
+          axios.post('https://turn-track-production.herokuapp.com/users/register', form.values)
           .then(response => {return <LoginPage/>});        
         }else{
            const loginForm = {email:form.values.email, password:form.values.password }
-          axios.post('http://localhost:8080/users/login', loginForm)
+          axios.post('https://turn-track-production.herokuapp.com/users/login', loginForm)
           .then(response => {
 
             if(response.headers.authorization){
