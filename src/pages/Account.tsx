@@ -13,7 +13,7 @@ import Userstats from "../components/Userstats";
     const [user, setuser] = useState({id:'',firstName:'',lastName:'',email:''})
 
     async function getUser(){
-        return await axios.get('http://localhost:8080/users/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
+        return await axios.get('https://turn-track-production.herokuapp.com/users/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
       }
 
 
