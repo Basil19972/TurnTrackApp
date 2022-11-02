@@ -38,10 +38,12 @@ import LoginPage from '../pages/LoginPage';
 
   return (
     <Container pt={200}>
+      
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" weight={500}>
         Welcome to Turn Track, {type} with
       </Text>
+      
 
       <Group grow mb="md" mt="md">
       </Group>
