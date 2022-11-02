@@ -144,7 +144,10 @@ interface Exercisesprops {
     <Group>
     <Text size={"xl"} mb={10}>List of your Exercises</Text>
 
-          <Button mt={20} onClick={deleteExercise}>Delete Exercise</Button>
+          <Button mt={20} onClick={deleteExercise}
+          variant="gradient"
+          gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+          >Delete Exercise</Button>
     </Group>
 
     <ScrollArea>
@@ -153,6 +156,7 @@ interface Exercisesprops {
           <tr>
             <th style={{ width: 40 }}>
               <Checkbox
+              
                 onChange={toggleAll}
                 checked={selection.length === data.length}
                 indeterminate={selection.length > 0 && selection.length !== data.length}
@@ -182,7 +186,10 @@ interface Exercisesprops {
         value={name}
       />
 
-      <Button mt={10} onClick={createTrainingDay}>Create new Training Day</Button>
+      <Button mt={10} onClick={createTrainingDay}
+      variant="gradient"
+      gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+      >Create new Training Day</Button>
 
         
       </Container></>

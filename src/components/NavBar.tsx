@@ -110,7 +110,10 @@ interface HeaderSimpleProps {
         <Button onClick={()=>{
           localStorage.removeItem("AccessToken");
           window.location.reload();
-        }}>Logout</Button>
+        }}
+        variant="gradient"
+            gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+        >Logout</Button>
 
 
       </Container>

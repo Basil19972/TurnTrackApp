@@ -53,7 +53,10 @@ function App(){
 
 
 
-      <Button onClick={sendCreatedExercise} mt={10}>Create Exercise</Button>
+      <Button onClick={sendCreatedExercise} mt={10}
+      variant="gradient"
+      gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+      >Create Exercise</Button>
 
       
     </div>

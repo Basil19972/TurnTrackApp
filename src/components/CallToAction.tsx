@@ -50,7 +50,7 @@ function FeaturesTitle() {
         size={44}
         radius="md"
         variant="gradient"
-        gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
+        gradient={{ deg: 133, from: 'red', to: 'cyan' }}
       >
         <feature.icon size={26} stroke={1.5} />
       </ThemeIcon>
@@ -68,16 +68,16 @@ function FeaturesTitle() {
       <Grid gutter={80}>
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>
-            A fully featured React components library for your next project
+            Your personal Gym Progress Tracker
           </Title>
           <Text color="dimmed">
-            Build fully functional accessible web applications faster than ever – Mantine includes
-            more than 120 customizable components and hooks to cover you in any situation
+            Track your own personal workout and be aware about your progress.
+            Stay on Track with TurnTrack
           </Text>
 
           <Button
             variant="gradient"
-            gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
+            gradient={{ deg: 133, from: 'red', to: 'cyan' }}
             size="lg"
             radius="md"
             mt="xl"

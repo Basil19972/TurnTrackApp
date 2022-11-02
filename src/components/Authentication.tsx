@@ -145,7 +145,10 @@ import LoginPage from '../pages/LoginPage';
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Button type="submit">{upperFirst(type)}</Button>
+          <Button type="submit"
+          variant="gradient"
+          gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+          >{upperFirst(type)}</Button>
         </Group>
       </form>
     </Paper>

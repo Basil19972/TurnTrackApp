@@ -133,7 +133,11 @@ import {
               />
   
               <Group position="right" mt="md">
-                <Button type="submit" className={classes.control}>
+                <Button 
+                type="submit" className={classes.control}
+                variant="gradient"
+            gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+                >
                   Send message
                 </Button>
               </Group>

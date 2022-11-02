@@ -73,21 +73,14 @@ import Userstats from "../components/Userstats";
         <></><Footer links={[
         {
           "link": "#",
-          "label": "Contact"
+          "label": "Privacy Policy"
         },
         {
-          "link": "#",
-          "label": "Privacy"
-        },
-        {
-          "link": "#",
-          "label": "Blog"
-        },
-        {
-          "link": "#",
-          "label": "Careers"
+          "link": "/imprint",
+          "label": "Imprint"
         }
-      ]} /></>
+      ]
+      } /></>
 
 
 

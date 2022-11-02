@@ -25,7 +25,11 @@ function BG() {
         </Center>
 
         <Center>
-        <Button size="sm" onClick={getQuoteFromAPI}>Get App</Button>
+        <Button 
+        size="sm" onClick={getQuoteFromAPI} 
+        variant="gradient"
+        gradient={{ deg: 133, from: 'red', to: 'cyan' }}
+        >Get App</Button>
         </Center>
 
       </BackgroundImage>
