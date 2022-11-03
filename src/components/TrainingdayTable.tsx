@@ -42,7 +42,7 @@ function TableSelection() {
 
   async function getTrainingDays() {
     return await axios.get(
-      "https://turn-track-production.herokuapp.com/weekday",
+      "https://turn-track-production.herokuapp.com/weekday/user",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
