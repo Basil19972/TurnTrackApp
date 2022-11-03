@@ -42,6 +42,19 @@ async function getStat1(){
 
  const labels:any = [];
  stats.forEach(element => labels.push(element.exercisename));
+
+ useEffect(()=>{
+  setstats([
+    {date:'20.03.2022',exercisename:'Bench Press',repetitions:12, weight:80},
+    {date:'20.03.2022',exercisename:'Bench Press',repetitions:8, weight:90},
+    {date:'20.03.2022',exercisename:'Bench Press',repetitions:10, weight:80},
+    {date:'20.03.2022',exercisename:'Bench Press',repetitions:8, weight:70},
+    {date:'20.03.2022',exercisename:'Bench Press',repetitions:15, weight:60}
+
+])
+
+
+ },[])
  
 
 
@@ -55,9 +68,9 @@ async function getStat1(){
        backgroundColor: 'rgba(255, 99, 132, 0.5)',
      },
      {
-       label: 'Weight',
+       label: 'Weight in Kg',
        data: stats.map(element => element.weight),
-       backgroundColor: 'rgba(53, 162, 235, 0.5)',
+       backgroundColor: 'rgba(0, 240, 255, 0.5)',
      },
    ],
  };

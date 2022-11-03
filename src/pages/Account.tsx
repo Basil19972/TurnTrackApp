@@ -72,7 +72,7 @@ import Userstats from "../components/Userstats";
         
         <></><Footer links={[
         {
-          "link": "#",
+          "link": "/privacypolicy",
           "label": "Privacy Policy"
         },
         {

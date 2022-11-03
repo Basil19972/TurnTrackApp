@@ -33,9 +33,9 @@ import NavBar from "../components/NavBar";
         }
         ]} />
 
-<BgUnterseite mess="Impressum" />
+<BgUnterseite mess="Privacy Policy" />
 
-<Center>
+    <Center>
     <Container mt={100}>
         <Text>
 <br/>

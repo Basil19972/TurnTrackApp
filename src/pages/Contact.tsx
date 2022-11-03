@@ -50,7 +50,7 @@ import Userinfos from "../components/Userinfos";
         
         <></><Footer links={[
         {
-          "link": "#",
+          "link": "/privacypolicy",
           "label": "Privacy Policy"
         },
         {

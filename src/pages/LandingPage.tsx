@@ -46,7 +46,7 @@ import NavBar from '../components/NavBar';
     </>
       <Footer links={[
         {
-          "link": "#",
+          "link": "/privacypolicy",
           "label": "Privacy Policy"
         },
         {

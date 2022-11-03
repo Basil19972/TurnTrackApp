@@ -68,7 +68,7 @@ import TrainingdayTable from "../components/TrainingdayTable";
         
         <></><Footer links={[
         {
-          "link": "#",
+          "link": "/privacypolicy",
           "label": "Privacy Policy"
         },
         {

@@ -43,6 +43,8 @@ import Userstats from '../components/Userstats';
       <CartStat/>
       </Container>
 
+   
+
 
 
 
@@ -52,7 +54,7 @@ import Userstats from '../components/Userstats';
     </>
       <Footer links={[
         {
-          "link": "#",
+          "link": "/privacypolicy",
           "label": "Privacy Policy"
         },
         {

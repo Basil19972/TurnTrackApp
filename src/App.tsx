@@ -12,6 +12,7 @@ import Exercises from './pages/Exercises';
 import Impresum from './pages/Imprint';
 import Imprint from './pages/Imprint';
 import { Center, Container, Loader } from '@mantine/core';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 async function login(){
   await axios.get('https://turn-track-production.herokuapp.com/users/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
@@ -54,6 +55,8 @@ export default function App() {
 <Route path="contact" element={<Contact />} />
 <Route path="exercises" element={<Exercises />} />
 <Route path="imprint" element={<Imprint />} />
+<Route path="privacypolicy" element={<PrivacyPolicy />} />
+
 
 
 
