@@ -1,28 +1,24 @@
-import { Button, NumberInput, TextInput } from '@mantine/core';
-import axios from 'axios';
-import {useState} from 'react';
+import { Button, NumberInput, TextInput } from "@mantine/core";
+import axios from "axios";
+import { useState } from "react";
 
-
-
-
-
-function App(){
-  const [name, setname] = useState('');
+function App() {
+  const [name, setname] = useState("");
   const [amountOfSets, setamountofsets] = useState(0);
 
-  const exercise = {name:name, amountOfSets:amountOfSets }
+  const exercise = { name: name, amountOfSets: amountOfSets };
 
-
-  const sendCreatedExercise = () =>{
-
-          axios.post('https://turn-track-production.herokuapp.com/exercise', exercise, {headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}} )
-          .then(response => {
-            window.location.reload()})
-        
-        };
-  
-
-
+  const sendCreatedExercise = () => {
+    axios
+      .post("https://turn-track-production.herokuapp.com/exercise", exercise, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+        },
+      })
+      .then((response) => {
+        window.location.reload();
+      });
+  };
 
   const handleChange = (event: any) => {
     setname(event.target.value);
@@ -35,7 +31,7 @@ function App(){
   return (
     <div>
       <TextInput
-       label="Exercise Name"
+        label="Exercise Name"
         type="text"
         id="message"
         name="message"
@@ -44,23 +40,21 @@ function App(){
       />
 
       <NumberInput
-      label="Amout of Sets"
-      type="number"
-      onChange={handleChange1}
+        label="Amout of Sets"
+        type="number"
+        onChange={handleChange1}
       />
 
-
-
-
-
-      <Button onClick={sendCreatedExercise} mt={10}
-      variant="gradient"
-      gradient={{ deg: 133, from: 'red', to: 'cyan' }}
-      >Create Exercise</Button>
-
-      
+      <Button
+        onClick={sendCreatedExercise}
+        mt={10}
+        variant="gradient"
+        gradient={{ deg: 133, from: "red", to: "cyan" }}
+      >
+        Create Exercise
+      </Button>
     </div>
   );
-};
+}
 
 export default App;

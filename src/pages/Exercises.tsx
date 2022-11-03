@@ -9,82 +9,67 @@ import NavBar from "../components/NavBar";
 import PlusminusButton from "../components/plusminusButton";
 import TrainingdayTable from "../components/TrainingdayTable";
 
-
-
- 
-
-
-  function Account() {
-
-        
-    return (
-        <><NavBar links={[
+function Account() {
+  return (
+    <>
+      <NavBar
+        links={[
           {
-            "link": "/",
-            "label": "Homepage"
-        },
+            link: "/",
+            label: "Homepage",
+          },
           {
-            "link": "/userStatPage",
-            "label": "Training Progess"
-        },
+            link: "/userStatPage",
+            label: "Training Progess",
+          },
 
-        {
-            "link": "/account",
-            "label": "Account"
-        },
-        {
-            "link": "/contact",
-            "label": "Contact"
-        },
-        {
-            "link": "/exercises",
-            "label": "Exercises"
-        }
-        ]} />
+          {
+            link: "/account",
+            label: "Account",
+          },
+          {
+            link: "/contact",
+            label: "Contact",
+          },
+          {
+            link: "/exercises",
+            label: "Exercises",
+          },
+        ]}
+      />
 
-<BgUnterseite mess="Exercises" />
+      <BgUnterseite mess="Exercises" />
 
-        <Container size="sm" pt={100}>
+      <Container size="sm" pt={100}>
         <h1>All Exercises</h1>
 
-        <Container pt={50} >
-        <CreateExercise/>
+        <Container pt={50}>
+          <CreateExercise />
         </Container>
 
         <Container mt={50}>
-        <ExerciseTable />
+          <ExerciseTable />
         </Container>
-    
-        </Container>
-        <Container mt={50}>
-          <TrainingdayTable/>
-        </Container>
+      </Container>
+      <Container mt={50}>
+        <TrainingdayTable />
+      </Container>
 
+      <></>
+      <Footer
+        links={[
+          {
+            link: "/privacypolicy",
+            label: "Privacy Policy",
+          },
+          {
+            link: "/imprint",
+            label: "Imprint",
+          },
+        ]}
+      />
+    </>
+  );
+}
 
-
-
-
-    
-        
-        <></><Footer links={[
-        {
-          "link": "/privacypolicy",
-          "label": "Privacy Policy"
-        },
-        {
-          "link": "/imprint",
-          "label": "Imprint"
-        }
-      ]} /></>
-
-
-
-
-
-    );
-  }
-  
-  export default Account
-  
-  
-  
+export default Account;

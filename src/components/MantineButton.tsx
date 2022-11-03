@@ -1,31 +1,31 @@
-import { useState } from 'react';
-import { useInterval } from '@mantine/hooks';
-import { createStyles, Button, Progress } from '@mantine/core';
+import { useState } from "react";
+import { useInterval } from "@mantine/hooks";
+import { createStyles, Button, Progress } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   button: {
-    position: 'relative',
-    transition: 'background-color 150ms ease',
+    position: "relative",
+    transition: "background-color 150ms ease",
   },
 
   progress: {
-    position: 'absolute',
+    position: "absolute",
     bottom: -1,
     right: -1,
     left: -1,
     top: -1,
-    height: 'auto',
-    backgroundColor: 'transparent',
+    height: "auto",
+    backgroundColor: "transparent",
     zIndex: 0,
   },
 
   label: {
-    position: 'relative',
+    position: "relative",
     zIndex: 1,
   },
 }));
 
- function ButtonProgress() {
+function ButtonProgress() {
   const { classes, theme } = useStyles();
   const [progress, setProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -47,11 +47,17 @@ const useStyles = createStyles(() => ({
     <Button
       fullWidth
       className={classes.button}
-      onClick={() => (loaded ? setLoaded(false) : !interval.active && interval.start())}
-      color={loaded ? 'teal' : theme.primaryColor}
+      onClick={() =>
+        loaded ? setLoaded(false) : !interval.active && interval.start()
+      }
+      color={loaded ? "teal" : theme.primaryColor}
     >
       <div className={classes.label}>
-        {progress !== 0 ? 'Uploading files' : loaded ? 'Files uploaded' : 'Upload files'}
+        {progress !== 0
+          ? "Uploading files"
+          : loaded
+          ? "Files uploaded"
+          : "Upload files"}
       </div>
       {progress !== 0 && (
         <Progress
