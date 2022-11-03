@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Exercises from './pages/Exercises';
 import Impresum from './pages/Imprint';
 import Imprint from './pages/Imprint';
+import { Center, Container, Loader } from '@mantine/core';
 
 async function login(){
   await axios.get('https://turn-track-production.herokuapp.com/users/current',{headers:{Authorization:`Bearer ${localStorage.getItem("AccessToken")}`}})
@@ -36,7 +37,7 @@ export default function App() {
 
   },[])
 
-  if(loading) return <p>Loading...</p>
+  if(loading) return  <Center><Container mt={500}><Loader size="xl" variant="dots" /></Container></Center>;
 
   if(!isLoggedIn) return <LoginPage/>
 
